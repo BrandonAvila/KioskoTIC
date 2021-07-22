@@ -1,0 +1,46 @@
+﻿@page
+@model KioskoTIC.Pages.CatalogoDivisionModel
+
+@{
+    ViewData["Title"] = "CatalogoDivisiones";
+    Layout = "_Layout";
+}
+
+<center><h1>Catalogo de Divisiones</h1></center>
+<br />
+<br />
+
+<div class="row">
+    @foreach (var item in Model.Division)
+    {
+     
+        <div class="cards card border-primary mb-3" style="max-width: 1000px">
+            <div class="row no-gutters">
+                <div class="col-md-6">
+                    <img width="400" src="~/img/@Html.DisplayFor(modelItem => item.ProfilePicture)" alt="Alternate Text" />
+                </div>
+                <div class="col-md-6">
+                    <div class="card-body" style="text-align:left">
+                        <h5 class="card-title" style="text-align:left"> @Html.DisplayFor(modelItem => item.NombreDivision)</h5>
+                        <br />
+                        <div class="container">
+                            <p class="card-text" style="text-align:left"> @Html.DisplayFor(modelItem => item.DescripcionDivision)</p>
+                            <br />
+                            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                                <div class="btn-group mr-2" role="group" aria-label="Second group">
+                                    <br />
+                                    <center>
+                                        <a asp-page="/Carreras/CatalogoCarreras" asp-route-id="@item.DivisionId" class="btn btn-outline-primary" tabindex="-1" role="button" aria-disabled="true">Carreras</a>
+                                    </center>
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,37 @@
+﻿@page
+@model KioskoTIC.Pages.Niveles.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "Admin";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nombre
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Nivel) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreNivel)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.NivelId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.NivelId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.NivelId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

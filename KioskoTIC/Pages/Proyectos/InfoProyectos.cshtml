@@ -1,0 +1,93 @@
+﻿@page
+@model KioskoTIC.Pages.Proyectos.InfoProyectosModel
+@using Microsoft.AspNetCore.Http;
+@{
+    ViewData["Title"] = "InfoProyectos";
+    Layout = "_Layout";
+}
+
+<link rel="stylesheet" href="~/css/Div.css" />
+
+<center><h1>Mas informacion del proyecto...</h1></center>
+
+<br />
+<br />
+
+<div class="container">
+
+    @foreach (var item in Model.Proyecto)
+    {
+        <div class="row">
+            <div class="col-md-12">
+                <br>
+                <div class="container">
+                    <div class="cards card mb-3 border-primary mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-md-6">
+                                <img width="400" src="~/ImagenesDeProyectos/@Html.DisplayFor(modelItem => item.IamgenProyecto)" alt="Alternate Text" />
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card-body">
+                                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.NombreProyecto)</h5>
+                                    <p class="card-text">@Html.DisplayFor(modelItem => item.DescripcionProyecto)</p>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+
+                <center><h2>Video del proyecto</h2></center>
+
+                <div class="container">
+
+                    <div class="embed-responsive embed-responsive-16by9"><iframe style=" width: 100%; height: 100%;" src="@Html.DisplayFor(modelItem => item.URLVideo)" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+                </div>
+                <br>
+
+                <center><h3>Galeria del Proyecto</h3></center>
+
+                <center>
+                    <br>
+                    <div class="container Centrado" style="align-content:center; align-items:center">
+                        <div class="row row-cols-1 row-cols-md-3">
+                            <div class="col mb-4">
+                                <div class="card">
+                                    <img width="313" src="~/ImagenesDeProyectos/@Html.DisplayFor(modelItem => item.Iamgen1)" alt="Alternate Text" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Vista previa del proyecto</h5>
+                                        <p class="card-text">Estas son imagenes de muestra, en las que se puede observar partes del mismo.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col mb-4">
+                                <div class="card">
+                                    <img width="313" src="~/ImagenesDeProyectos/@Html.DisplayFor(modelItem => item.Imagen2)" alt="Alternate Text" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Vista previa del proyecto</h5>
+                                        <p class="card-text">Estas son imagenes de muestra, en las que se puede observar partes del mismo.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col mb-4">
+                                <div class="card ">
+                                    <img width="313" src="~/ImagenesDeProyectos/@Html.DisplayFor(modelItem => item.Imagen3)" alt="Alternate Text" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Vista previa del proyecto</h5>
+                                        <p class="card-text">Estas son imagenes de muestra, en las que se puede observar partes del mismo.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </center>
+
+
+            </div>
+        </div>
+    }
+</div>
+
+

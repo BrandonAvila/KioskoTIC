@@ -1,0 +1,55 @@
+﻿@page
+@model KioskoTIC.Pages.Usuarios.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "Admin";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nombre de usuario
+            </th>
+            <th>
+                Contraseña
+            </th>
+            <th>
+                Nombres y apellidos
+            </th>
+            <th>
+                Nivel del usuario
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Usuario) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.User)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contrasenia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nivel.NombreNivel)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.UsuarioId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.UsuarioId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.UsuarioId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

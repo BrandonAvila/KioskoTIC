@@ -1,0 +1,31 @@
+﻿@page
+@model KioskoTIC.Pages.CatalogoCarrerasModel
+
+@{
+    ViewData["Title"] = "CatalogoCarreras";
+}
+
+<h1>Catalogo de Carreras</h1>
+<br />
+
+<div class="row">
+
+    @foreach (var item in Model.Carrera)
+    {
+    <div class="card text-center border-primary mb-3">
+        <div class="card-header">
+            @Html.DisplayFor(modelItem => item.NombreCarrera)
+        </div>
+        <div class="card-body">
+            <p class="card-text">@Html.DisplayFor(modelItem => item.DescripcionCarrera)</p>
+        </div>
+        <br />
+        <a asp-page="/Proyectos/CatalogoProyectos" asp-route-id="@item.CarreraId" class="btn btn-outline-primary" tabindex="-1" role="button" aria-disabled="true">Proyectos</a>
+        <a target="_blank" download="@Html.DisplayFor(modelItem => item.archivopdf) .jpg" href="~/Archivos/@Html.DisplayFor(modelItem => item.archivopdf)" class="btn btn-outline-primary" tabindex="-1" role="button" aria-disabled="true">Plan de estudios</a>
+        <br />
+    </div>
+            <br>
+            <br>
+    }
+</div>
+

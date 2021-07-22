@@ -1,0 +1,52 @@
+﻿@page
+@model KioskoTIC.Pages.Carreras.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Carrera</h4>
+<hr />
+
+<div class="row">
+    <div class="Form">
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Carrera.CarreraId" />
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label class="control-label">Nombre de la carrera</label>
+                    <input asp-for="Carrera.NombreCarrera" class="form-control" />
+                    <span asp-validation-for="Carrera.NombreCarrera" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="control-label">Descripcion</label>
+                    <input asp-for="Carrera.DescripcionCarrera" class="form-control" />
+                    <span asp-validation-for="Carrera.DescripcionCarrera" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label class="control-label">Division a la que pertenece</label>
+                    <select asp-for="Carrera.DivisionId" class="form-control" asp-items="ViewBag.DivisionId"></select>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="control-label">Plan de estudios</label>
+                    <input type="file" name="PDF" asp-for="Carrera.archivopdf" class="form-control" />
+                    <span asp-validation-for="Carrera.archivopdf" class="text-danger"></span>
+                </div>
+            </div>
+            <input type="submit" value="Save" class="btn btn-outline-primary" />
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,56 @@
+﻿@page
+@model KioskoTIC.Pages.Proyectos.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "Admin";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Imagen del proyecto
+            </th>
+            <th>
+                Nombre del proyecto
+            </th>
+            <th>
+                Descripcion
+            </th>
+            <th>
+                Carrera a la que pertenece
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Proyecto)
+        {
+            <tr>
+                <td>
+                    <img width="150" src="~/ImagenesDeProyectos/@Html.DisplayFor(modelItem => item.IamgenProyecto)" alt="Alternate Text" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreProyecto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DescripcionProyecto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Carrera.NombreCarrera)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ProyectoId">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ProyectoId">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ProyectoId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

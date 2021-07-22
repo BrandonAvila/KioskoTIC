@@ -1,0 +1,21 @@
+﻿body {
+}
+
+
+.container {
+    justify-content: center;
+    justify-items: center;
+
+}
+
+.table .thead-dark th {
+    color: black !important;
+    background-color: black !important;
+    border-color: whitesmoke !important;
+}
+
+.table th,
+.table td {
+    padding: 0.75rem;
+    vertical-align: top;
+}

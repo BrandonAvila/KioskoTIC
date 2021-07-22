@@ -1,0 +1,91 @@
+﻿@page
+@model KioskoTIC.Pages.RegistroModel
+
+@{
+    ViewData["Title"] = "Registro";
+    Layout = "_Layout";
+}
+
+<!-- Custom fonts for this template-->
+<link href="/css/Login.css" rel="stylesheet" type="text/css">
+
+<!-- Custom styles for this template-->
+
+<div class="container">
+
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
+
+        <div class="col-xl-10 col-lg-12 col-md-9">
+
+            <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+                    <!-- Nested Row within Card Body -->
+                    <div class="row">
+                        <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                        <div class="col-lg-6">
+                            <div class="p-5">
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-900 mb-4">Regístrate</h1>
+                                </div>
+                                <form class="user" method="post">
+                                    <div class="form-group">
+                                        <label class="control-label">Nombre de usuario</label>
+                                        <input type="text" class="form-control"
+                                               id="exampleInputEmail" aria-describedby="emailHelp"
+                                               placeholder="Nombre de usuario" asp-for="Usuario.User">
+                                        <span asp-validation-for="Usuario.User" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Contraseña</label>
+                                        <input type="text" class="form-control"
+                                               id="exampleInputEmail" aria-describedby="emailHelp"
+                                               placeholder="Contraseña" asp-for="Usuario.Contrasenia">
+                                        <span asp-validation-for="Usuario.Contrasenia" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Nombres y apellidos</label>
+                                        <input type="text" class="form-control"
+                                               id="exampleInputEmail" aria-describedby="emailHelp"
+                                               placeholder="Nombres y apellidos" asp-for="Usuario.Nombre">
+                                        <span asp-validation-for="Usuario.Nombre" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="hidden" class="form-control"
+                                                id="exampleInputEmail" aria-describedby="emailHelp"
+                                                asp-for="Usuario.NivelId" value="2" />
+                                        <span asp-validation-for="Usuario.NivelId" class="text-danger"></span>
+                                    </div>
+                                    <center>
+                                        <button type="submit" value="Create" class="btn btn-outline-primary">Registrarse</button>
+                                    </center>
+                                </form>
+                                <hr>
+                                <div class="text-center">
+                                    <a class="small" asp-page="/Login">Already have an account? Log in!</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript-->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="js/sb-admin-2.min.js"></script>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

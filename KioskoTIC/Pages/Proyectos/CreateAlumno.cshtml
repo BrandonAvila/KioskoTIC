@@ -1,0 +1,69 @@
+﻿@page
+@model KioskoTIC.Pages.Proyectos.CreateAlumnoModel
+
+@{
+    ViewData["Title"] = "CreateAlumno";
+}
+
+<h1>Agregar nuevo proyecto</h1>
+<hr />
+
+<div class="row">
+    <div class="Form">
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label class="control-label">Imagen del proyecto</label>
+                    <input type="file" name="ImagenProyecto" asp-for="Proyecto.IamgenProyecto" class="form-control" />
+                    <span asp-validation-for="Proyecto.IamgenProyecto" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="control-label">Nombre del proyecto</label>
+                    <input asp-for="Proyecto.NombreProyecto" class="form-control" />
+                    <span asp-validation-for="Proyecto.NombreProyecto" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label class="control-label">Descripcion</label>
+                    <input asp-for="Proyecto.DescripcionProyecto" class="form-control" />
+                    <span asp-validation-for="Proyecto.DescripcionProyecto" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="control-label">URL del video</label>
+                    <input asp-for="Proyecto.URLVideo" class="form-control" />
+                    <span asp-validation-for="Proyecto.URLVideo" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label class="control-label">Imagen de galeria 1</label>
+                    <input type="file" name="ImagenGaleria1" asp-for="Proyecto.Iamgen1" class="form-control" />
+                    <span asp-validation-for="Proyecto.Iamgen1" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="control-label">Imagen de galeria 2</label>
+                    <input type="file" name="ImagenGaleria2" asp-for="Proyecto.Imagen2" class="form-control" />
+                    <span asp-validation-for="Proyecto.Imagen2" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label class="control-label">Imagen de galeria 3</label>
+                    <input type="file" name="ImagenGaleria3" asp-for="Proyecto.Imagen3" class="form-control" />
+                    <span asp-validation-for="Proyecto.Imagen3" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="control-label">Carrera a la que pertenece</label>
+                    <select asp-for="Proyecto.CarreraId" class="form-control" asp-items="ViewBag.CarreraId"></select>
+                </div>
+            </div>
+            <input type="submit" value="Create" class="btn btn-outline-primary" />
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
