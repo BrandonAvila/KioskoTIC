@@ -9,86 +9,108 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">KioskoTIC</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
 
-            <div class="collapse navbar-collapse" id="navbarColor01">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" asp-page="/Index">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-page="/Divisiones/CatalogoDivision">Divisiones</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-page="/SobreNosotros">Sobre Nosotros</a>
-                    </li>
-                    <li class="nav-item">
-                        @{
+    <!--Navbar -->
+    <nav class="mb-1 navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" asp-page="/Index">
+            <img src="~/img/Libros.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            KioskoTIC
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
+                aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-                            @if (Context.Session.GetString("Nivel") == "3")
+        <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" asp-page="/Index">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-page="/Divisiones/CatalogoDivision">Divisiones</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-page="/SobreNosotros">Sobre Nosotros</a>
+                </li>
+                <li class="nav-item">
+                    @{
+
+                        @if (Context.Session.GetString("Nivel") == "3")
                             {
-                                <a class="nav-link" asp-page="/Proyectos/CreateAlumno">Agregar proyecto...</a>
+                        <a class="nav-link" asp-page="/Proyectos/CreateAlumno">Agregar proyecto...</a>
                             }
                             else
                             {
 
                             }
-                        }
-                    </li>
-                    <li class="nav-item">
-                        @{
+                    }
+                </li>
+                <li class="nav-item dropdown">
+                    @{
 
-                            @if (Context.Session.GetString("Nivel") == "1")
+                        @if (Context.Session.GetString("Nivel") == "1")
                             {
-                                <a class="nav-link" asp-page="/Divisiones/Index">Administrar</a>
-                            }
-                            else
-                            {
-
-                            }
-                        }
-                    </li>
-                    <li class="nav-item">
-                        @{
-                            @if (string.IsNullOrEmpty(Context.Session.GetString("usuario")))
-                            {
-
-                            }
-                            else
-                            {
-                                <a class="nav-link" asp-page="/Login" asp-page-handler="Cerrar">Cerrar sesión</a>
-                            }
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            Administrar
+                        </a>
+                        <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
+                            <a class="dropdown-item" asp-page="/Divisiones/Index">Divisiones</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" asp-page="/Carreras/Index">Carreras</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" asp-page="/Proyectos/Index">Proyectos</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" asp-page="/Usuarios/Index">Usuarios</a>
+                        </div>
 
                         }
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-disabled="true">
-                            @{
+                        else
+                        {
 
-                                @if (string.IsNullOrEmpty(Context.Session.GetString("usuario")))
+                        }
+                    }
+                </li>
+            </ul>
+        </div>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    @{
+
+                        @if (string.IsNullOrEmpty(Context.Session.GetString("usuario")))
+                                    {
+
+                                        //Aqui le dices  o redireccionas al usuario (No tienes permiso!)
+                        @Html.Raw("No tienes permisos");
+
+
+                                    }
+                                    else
+                                    {
+                        @Html.Raw("Bienvenido " + Context.Session.GetString("usuario"));
+                                    }
+
+                    }
+                </a>
+
+            </li>
+            <li class="nav-item">
+                @{
+                    @if (string.IsNullOrEmpty(Context.Session.GetString("usuario")))
                                 {
-
-                                    //Aqui le dices  o redireccionas al usuario (No tienes permiso!)
-                                    @Html.Raw("No tienes permisos");
-
 
                                 }
                                 else
                                 {
-                                    @Html.Raw("Bienvenido " + Context.Session.GetString("usuario"));
+                    <a class="derecha nav-link" asp-page="/Login" asp-page-handler="Cerrar">Cerrar sesión</a>
                                 }
 
-                            }
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+                }
+            </li>
+        </ul>
+
     </nav>
     <br />
     <br />
@@ -128,7 +150,7 @@
                         <li><a href="#">Reportes</a></li>
                         <li><a href="#">Estatus de Reportes</a></li>
                     </ul>
-                </div> 
+                </div>
             </div>
         </div>
     </footer>

@@ -2,14 +2,14 @@
 @model KioskoTIC.Pages.Usuarios.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalles del usuario";
 }
 
-<h1>Details</h1>
+<center>
+    <h1>Detalles del usuario</h1>
+</center>
 
 <div>
-    <h4>Usuario</h4>
-    <hr />
     <dl class="row">
         <dt class="col-sm-2">
             Nombre de usuario
@@ -33,7 +33,7 @@
             Nivel del usuario
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Usuario.Nivel.NivelId)
+            @Html.DisplayFor(model => model.Usuario.Nivel.NombreNivel)
         </dd>
     </dl>
 </div>

@@ -2,14 +2,17 @@
 @model KioskoTIC.Pages.Divisiones.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
-    Layout = "Admin";
+    ViewData["Title"] = "Tabla de divisiones existentes";
+    Layout = "_Layout";
 }
 
-<h1>Index</h1>
+<center>
+    <h1>Tabla de las divisiones existentes</h1>
+</center>
+<br />
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a class="btn btn-outline-primary" asp-page="Create">Agregar divisiones</a>
 </p>
 <table class="table">
     <thead>
@@ -23,27 +26,30 @@
             <th>
                 Descripcion
             </th>
-            <th></th>
+            <th style="width: 24%;">
+                Administrar
+            </th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Division) {
-        <tr>
-            <td>
-                <img width="150" src="~/img/@Html.DisplayFor(modelItem => item.ProfilePicture)" alt="Alternate Text" />
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NombreDivision)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DescripcionDivision)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.DivisionId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.DivisionId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.DivisionId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Division)
+        {
+            <tr>
+                <td>
+                    <img width="150" src="~/img/@Html.DisplayFor(modelItem => item.ProfilePicture)" alt="Alternate Text" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreDivision)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DescripcionDivision)
+                </td>
+                <td>
+                    <a class="btn btn-outline-primary" asp-page="./Edit" asp-route-id="@item.DivisionId">Edit</a> |
+                    <a class="btn btn-outline-primary" asp-page="./Details" asp-route-id="@item.DivisionId">Details</a> |
+                    <a class="btn btn-outline-primary" asp-page="./Delete" asp-route-id="@item.DivisionId">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

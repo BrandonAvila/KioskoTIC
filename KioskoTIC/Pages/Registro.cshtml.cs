@@ -42,7 +42,7 @@ namespace KioskoTIC.Pages
             _context.Usuarios.Add(Usuario);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Login");
         }
     }
 }

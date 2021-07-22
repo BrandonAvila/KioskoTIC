@@ -2,15 +2,17 @@
 @model KioskoTIC.Pages.Proyectos.DeleteModel
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Eliminar proyectos";
 }
 
-<h1>Delete</h1>
+<center>
+    <h1>Eliminar proyecto</h1>
+</center>
 
-<h3>Are you sure you want to delete this?</h3>
+<hr />
+
+<h3>¿Estás seguro que deseas borrar este proyecto?</h3>
 <div>
-    <h4>Proyecto</h4>
-    <hr />
     <dl class="row">
         <dt class="col-sm-2">
             Imagen del proyecto
@@ -61,7 +63,7 @@
             @Html.DisplayFor(model => model.Proyecto.Carrera.NombreCarrera)
         </dd>
     </dl>
-    
+
     <form method="post">
         <input type="hidden" asp-for="Proyecto.ProyectoId" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |

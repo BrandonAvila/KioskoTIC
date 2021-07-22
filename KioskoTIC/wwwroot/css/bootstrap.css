@@ -12,6 +12,12 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap");
+
+.derecha {
+    margin-right: auto;
+    float: right !important;
+}
+
 :root {
   --bs-blue: #2c3e50;
   --bs-indigo: #6610f2;

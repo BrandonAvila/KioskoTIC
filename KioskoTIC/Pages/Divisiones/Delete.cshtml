@@ -2,15 +2,17 @@
 @model KioskoTIC.Pages.Divisiones.DeleteModel
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Eliminar divisiones";
 }
 
-<h1>Delete</h1>
+<center>
+    <h1>Eliminar división</h1>
+</center>
 
-<h3>Are you sure you want to delete this?</h3>
+<hr />
+
+<h3>¿Estás seguro que deseas borrar esta división?</h3>
 <div>
-    <h4>Division</h4>
-    <hr />
     <dl class="row">
         <dt class="col-sm-2">
             Imagen
@@ -31,7 +33,7 @@
             @Html.DisplayFor(model => model.Division.DescripcionDivision)
         </dd>
     </dl>
-    
+
     <form method="post">
         <input type="hidden" asp-for="Division.DivisionId" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
